@@ -6,16 +6,11 @@ public class App {
     }
 
     public static double convertToCentimeters(int inches) {
-        double inchesToCms = inches * 2.54;
-
-        return inchesToCms;
+        return inches * 2.54;
     }
 
     public static double convertToCentimeters(int feet, int inches) {
-        int totalInches = (int) feet * 12 + inches;
-
-        double resultOfInches = convertToCentimeters(totalInches);
-        return resultOfInches;
+        return convertToCentimeters((int) feet*12+inches);
     }
 
 }
