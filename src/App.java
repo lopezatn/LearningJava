@@ -2,17 +2,19 @@ public class App {
 
     public static void main(String[] args) {
 
-        switchEnhancedStatementWeekDay(7);
+        sum3And5();
 
     }
 
     // overloaded methods:
     public static double convertToCentimeters(int inches) {
         return inches * 2.54;
+
     }
 
     public static double convertToCentimeters(int feet, int inches) {
         return convertToCentimeters((int) feet*12+inches);
+
     }
 
     public static String getDurationString (int seconds) {
@@ -32,6 +34,7 @@ public class App {
             seconds -= 60;   
         }
         return String.format("%02dh %02dm %02ds", hours, minutes, seconds);
+
     }
 
     public static String getDurationString (int minutes, int seconds) {
@@ -52,6 +55,7 @@ public class App {
         }
 
         return String.format("%02dh %02dm %02ds", hours, minutes, seconds);
+        
     }
     // end of overloaded methods
 
@@ -79,6 +83,7 @@ public class App {
                 System.out.println(letter + " not found");
                 break;
         }
+        
     }
 
     public static void switchEnhancedStatementWeekDay(int day) {
@@ -93,8 +98,94 @@ public class App {
             case 6 -> "Saturday";
             default -> "Invalid day";
             };
-
         System.out.println(dayOfTheWeek);
+
     }
-    // switch statements
+
+    
+    public static boolean isLeapYear (int year) {
+        if (year < 1 || year > 9999) {
+            return false;
+        }
+        
+        if (year % 4 != 0) {
+            return false;
+        } else if (year % 100 != 0) {
+            return true;
+        } else if (year % 400 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    
+    public static int getDaysInMonth (int month, int year) {
+        if (month < 1 || month > 12) {
+            return -1;
+        } else if (year < 1 || year > 9999) {
+            return -1;
+        }
+        
+        int daysInMonth = switch (month) {
+            case 1 -> 31;
+            case 2 -> isLeapYear(year) ? 29 : 28;
+            case 3 -> 31;
+            case 4 -> 30;
+            case 5 -> 31;
+            case 6 -> 30;
+            case 7 -> 31;
+            case 8 -> 31;
+            case 9 -> 30;
+            case 10 -> 31;
+            case 11 -> 30;
+            case 12 -> 31;
+            default -> -1;
+        };
+        return daysInMonth;
+
+    }
+    // end of switch statements
+
+    // prime number
+
+    public static boolean isPrime (int number) {
+        
+        for (int divisor = 2; divisor <= (number / 2); divisor++) {
+            if (number % divisor == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void primeNumbersCounter () {
+        for (int counter = 0; counter <= 3;) {
+            if (counter == 3) {
+                break;
+            }
+            int randomNumber = (int) (Math.random() * 1000) + 1;
+            if (isPrime(randomNumber)) {
+                System.out.println(randomNumber + " is prime");
+            }
+        }
+    }
+
+    public static void sum3And5 () {
+        int sum = 0;
+        int counter = 0;
+        for (int i = 1; i <= 1000; i++) {
+            if (counter == 5) {
+                break;
+            } else if (i % 3 == 0 && i % 5 == 0) {
+                sum += i;
+                counter++;
+                System.out.println("The counting is at " + counter);
+                System.out.println("The number is " + i);
+                System.out.println("The sum is " + sum);
+            }
+        }
+        System.out.println("Final result: " + sum);
+    }
+
 }
