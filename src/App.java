@@ -2,7 +2,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        sum3And5();
+        printEvenNumbers();
 
     }
 
@@ -147,7 +147,7 @@ public class App {
     }
     // end of switch statements
 
-    // prime number
+    // numbers and for loops
 
     public static boolean isPrime (int number) {
         
@@ -187,5 +187,45 @@ public class App {
         }
         System.out.println("Final result: " + sum);
     }
+
+    // end of numbers and for loops
+
+    // while loop
+
+    public static boolean isEvenNumber (int number) {
+        if (number % 2 == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void printEvenNumbers () {
+        int number = 5;
+        int evenNumbersFound = 0;
+        int oddNumbersFound = 0;
+
+        do {
+            if (isEvenNumber(number)) {
+                evenNumbersFound++;
+                System.out.println("Even number: " + number);
+                number++;        
+            } else {
+                oddNumbersFound++;
+                System.out.println("Odd number: " + number);
+                number++;
+            }
+        } while (evenNumbersFound != 5);
+        System.out.println("The amount of even numbers found is: " + evenNumbersFound);
+        System.out.println("The amount of odd numbers found is: " + oddNumbersFound);
+
+        // while (number <= 20) {
+        //     if (isEvenNumber(number)) {
+        //         System.out.println(number);
+        //     }
+        //     number++;
+        // }
+    }
+
+    // end of while loop
 
 }
