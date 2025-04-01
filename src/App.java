@@ -252,7 +252,6 @@ public class App {
         int number = 0;
         int sum = 0;
         int numberSequence = 1;
-        boolean validInput = false;
 
         do {
             try {
@@ -260,18 +259,13 @@ public class App {
                 number = Integer.parseInt(scanner.nextLine());
                 sum += number;
                 numberSequence++;
-                validInput = true;               
             } catch (NumberFormatException e) {
-                System.out.println("Characters are not allowed");
-                validInput = false;
+                System.out.println("Invalid number, please use integers");
             }            
-        } while (!validInput || numberSequence <= 5);
-        
-        
+        } while (numberSequence <= 5);
         scanner.close();
         
         return  sum;
-    
     }
 
 
