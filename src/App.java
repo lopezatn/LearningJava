@@ -1,11 +1,12 @@
+import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
-
-        int number = sumDigits(7);
-        System.out.println(number);
-
+        int result = readUserInput();
+        System.out.println(result);
     }
+
 
     // overloaded methods:
     public static double convertToCentimeters(int inches) {
@@ -243,5 +244,37 @@ public class App {
     }
 
     // end of while loop
+
+    // user input
+
+    public static int readUserInput () {
+        Scanner scanner = new Scanner(System.in);
+        int number = 0;
+        int sum = 0;
+        int numberSequence = 1;
+        boolean validInput = false;
+
+        do {
+            try {
+                System.out.println("Enter number #" + numberSequence + ":");
+                number = Integer.parseInt(scanner.nextLine());
+                sum += number;
+                numberSequence++;
+                validInput = true;               
+            } catch (NumberFormatException e) {
+                System.out.println("Characters are not allowed");
+                validInput = false;
+            }            
+        } while (!validInput || numberSequence <= 5);
+        
+        
+        scanner.close();
+        
+        return  sum;
+    
+    }
+
+
+    // end of user input
 
 }
