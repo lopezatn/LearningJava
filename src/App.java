@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        int result = readUserInput();
-        System.out.println(result);
+        trackMinAndMaxNumbers();
     }
 
 
@@ -196,7 +195,16 @@ public class App {
 
     public static boolean isEvenNumber (int number) {
         if (number % 2 == 0) {
-            return true;
+            return true;        String dayOfTheWeek = switch (day) {
+                case 0 -> "Sunday";
+                case 1 -> "Monday";
+                case 2 -> "Tuesday";
+                case 3 -> "Wednesday";
+                case 4 -> "Thursday";
+                case 5 -> "Friday";
+                case 6 -> "Saturday";
+                default -> "Invalid day";
+                };
         }
         return false;
     }
@@ -247,7 +255,7 @@ public class App {
 
     // user input
 
-    public static int readUserInput () {
+    public static int sumInputNumbers () {
         Scanner scanner = new Scanner(System.in);
         int number = 0;
         int sum = 0;
@@ -268,6 +276,45 @@ public class App {
         return  sum;
     }
 
+    public static int trackMinAndMaxNumbers () {
+        Scanner scanner = new Scanner(System.in);
+        int minNumber = 0;
+        int maxNumber = 0;
+        String input = "";
+        int counter = 0;
+        boolean isNumber = true;
+
+        do {
+            String numberSequence = switch (counter) {
+                case 0 -> "Enter the first number. Enter a character to EXIT";
+                case 1 -> "Enter the second number. Enter a character to EXIT";
+                case 2 -> "Enter the third number. Enter a character to EXIT";
+                case 3 -> "Enter the fourth number. Enter a character to EXIT";
+                case 4 -> "Enter the fifth number. Enter a character to EXIT";
+                case 5 -> "Enter the sixth number. Enter a character to EXIT";
+                default -> "Keep entering numbers or a character to Exit";
+            };
+
+            System.out.println(numberSequence);
+            input = scanner.nextLine();
+            try {
+                long number = Integer.parseInt(input); // Checking if converts to number
+                counter++;
+                if (number > maxNumber) {
+                    maxNumber = number;
+                } else if (number < minNumber) {
+                    minNumber = number;
+                }
+            } catch (NumberFormatException e) {
+                isNumber = false;
+            }
+
+        } while (isNumber);
+        System.out.println("Minimum value registered: " + minNumber);
+        System.out.println("Maximum value registered: " + maxNumber);
+        scanner.close();
+        return 1;
+    }
 
     // end of user input
 
