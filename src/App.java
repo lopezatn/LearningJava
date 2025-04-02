@@ -1,9 +1,20 @@
 import java.util.Scanner;
 
 public class App {
-
     public static void main(String[] args) {
-        trackMinAndMaxNumbers();
+
+        BankAccount myAccount = new BankAccount();
+    
+        myAccount.setAccountNumber(8884);
+        myAccount.setAccountBalance(0);
+        myAccount.setCustomerName("Trevor Belmont");
+        myAccount.setEmailAddress("trevor@housebelmont.com");
+        myAccount.setPhoneNumber(123456789);
+    
+        myAccount.accountInformation();
+        myAccount.depositFunds(50000);
+        myAccount.withdrawFunds(40000);
+        
     }
 
 
@@ -278,8 +289,8 @@ public class App {
 
     public static int trackMinAndMaxNumbers () {
         Scanner scanner = new Scanner(System.in);
-        int minNumber = 0;
-        int maxNumber = 0;
+        int minNumber = Integer.MIN_VALUE;
+        int maxNumber = Integer.MAX_VALUE;
         String input = "";
         int counter = 0;
         boolean isNumber = true;
@@ -294,11 +305,11 @@ public class App {
                 case 5 -> "Enter the sixth number. Enter a character to EXIT";
                 default -> "Keep entering numbers or a character to Exit";
             };
-
+            
             System.out.println(numberSequence);
             input = scanner.nextLine();
             try {
-                long number = Integer.parseInt(input); // Checking if converts to number
+                int number = Integer.parseInt(input); // Checking if the input converts to number
                 counter++;
                 if (number > maxNumber) {
                     maxNumber = number;
@@ -306,7 +317,7 @@ public class App {
                     minNumber = number;
                 }
             } catch (NumberFormatException e) {
-                isNumber = false;
+                isNumber = false; // exit the loop since the input is not a number
             }
 
         } while (isNumber);
@@ -315,6 +326,75 @@ public class App {
         scanner.close();
         return 1;
     }
+    // end user input
+
+    // OOP - Classes & methods
+
+    public static class BankAccount {
+        
+        // class properties
+        private long accountNumber;
+        private long accountBalance;
+        private String customerName;
+        private String emailAddress;
+        private long phoneNumber;
+
+        // class getters and setters
+        public long getAccountNumber() {
+            return accountNumber;
+        }
+        public void setAccountNumber(long accountNumber) {
+            this.accountNumber = accountNumber;
+        }
+        public long getAccountBalance() {
+            return accountBalance;
+        }
+        public void setAccountBalance(long accountBalance) {
+            this.accountBalance = accountBalance;
+        }
+        public String getCustomerName() {
+            return customerName;
+        }
+        public void setCustomerName(String customerName) {
+            this.customerName = customerName;
+        }
+        public String getEmailAddress() {
+            return emailAddress;
+        }
+        public void setEmailAddress(String emailAddress) {
+            this.emailAddress = emailAddress;
+        }
+        public long getPhoneNumber() {
+            return phoneNumber;
+        }
+        public void setPhoneNumber(long phoneNumber) {
+            this.phoneNumber = phoneNumber;
+        }
+
+        public void accountInformation () {
+            System.out.println("Welcome back " + customerName);
+        }
+
+        public void depositFunds (long amount) {
+            System.out.println("Previous funds: " + accountBalance);
+            accountBalance += amount;
+            System.out.println("Current funds: " + accountBalance);
+        }
+        
+        public void withdrawFunds (long amount) {
+            if (amount > accountBalance) {
+                System.out.println("The amount to withdraw exceeds your account funds");
+                return;
+            }
+            System.out.println("Previous account balance: " + accountBalance);
+            accountBalance -= amount;
+            System.out.println("Current account balance is: " + accountBalance);
+        }
+    }
+
+
+
+    
 
     // end of user input
 
