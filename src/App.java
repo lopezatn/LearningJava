@@ -3,17 +3,32 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        BankAccount myAccount = new BankAccount();
+        SalariedEmployee employee = new SalariedEmployee("Trevor Belmont", "01-01-1980", 123456789, "11-01-2020", 120000);
+        System.out.println("Employee name: " + employee.getName());
+        System.out.println("Employee age: " + employee.getAge());
+        System.out.println("Employee monthly salary: " + employee.collectPay());
+        System.out.println("Employee ID: " + employee.getEmployeeId());
+        System.out.println("Employee birth date: " + employee.getBirthDate());
+        System.out.println("Employee annual salary: " + employee.getAnnualSalary());
+        System.out.println("Employee hire date: " + employee.getHireDate());
+        employee.setEndDate("15-04-2024");
+        System.out.println("Employee end date: " + employee.getEndDate());
+
+        // Try to terminate an employee.
+
+
+
+        // BankAccount myAccount = new BankAccount();
     
-        myAccount.setAccountNumber(8884);
-        myAccount.setAccountBalance(0);
-        myAccount.setCustomerName("Trevor Belmont");
-        myAccount.setEmailAddress("trevor@housebelmont.com");
-        myAccount.setPhoneNumber(123456789);
+        // myAccount.setAccountNumber(8884);
+        // myAccount.setAccountBalance(0);
+        // myAccount.setCustomerName("Trevor Belmont");
+        // myAccount.setEmailAddress("trevor@housebelmont.com");
+        // myAccount.setPhoneNumber(123456789);
     
-        myAccount.accountInformation();
-        myAccount.depositFunds(50000);
-        myAccount.withdrawFunds(40000);
+        // myAccount.accountInformation();
+        // myAccount.depositFunds(50000);
+        // myAccount.withdrawFunds(40000);
         
     }
 
@@ -206,16 +221,7 @@ public class App {
 
     public static boolean isEvenNumber (int number) {
         if (number % 2 == 0) {
-            return true;        String dayOfTheWeek = switch (day) {
-                case 0 -> "Sunday";
-                case 1 -> "Monday";
-                case 2 -> "Tuesday";
-                case 3 -> "Wednesday";
-                case 4 -> "Thursday";
-                case 5 -> "Friday";
-                case 6 -> "Saturday";
-                default -> "Invalid day";
-                };
+            return true;
         }
         return false;
     }
@@ -392,10 +398,41 @@ public class App {
         }
     }
 
+    public static class Customer {
+        private String name;
+        private long creditLimit;
+        private String emailAddress;
 
+        public Customer(String name, long creditLimit, String emailAddress) {
+            this.name = name;
+            this.creditLimit = creditLimit;
+            this.emailAddress = emailAddress;
+        }
 
-    
+        public Customer() {
+            this(
+            "Trevor Belmont", 
+            "trevor@belmonthouse.com"
+            );
+        }
 
-    // end of user input
+        public Customer(String name, String emailAddress) {
+            this("Trevor Belmont II", 100000, "trevorII@belmonthouse.com");
+        }
+
+        public void getName() {
+         
+        }
+
+        public void getCreditLimit() {
+            
+        }
+
+        public void getEmailAddress() {
+            
+        }
+    }
+
+    // end of OOP - Classes & methods
 
 }
