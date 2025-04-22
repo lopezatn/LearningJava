@@ -3,16 +3,29 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        SalariedEmployee employee = new SalariedEmployee("Trevor Belmont", "01-01-1980", 123456789, "11-01-2020", 120000);
-        System.out.println("Employee name: " + employee.getName());
-        System.out.println("Employee age: " + employee.getAge());
-        System.out.println("Employee monthly salary: " + employee.collectPay());
-        System.out.println("Employee ID: " + employee.getEmployeeId());
-        System.out.println("Employee birth date: " + employee.getBirthDate());
-        System.out.println("Employee annual salary: " + employee.getAnnualSalary());
-        System.out.println("Employee hire date: " + employee.getHireDate());
-        employee.setEndDate("15-04-2024");
-        System.out.println("Employee end date: " + employee.getEndDate());
+        SmartKitchen kitchen = new SmartKitchen();
+
+        kitchen.setKitchenState(true, true, true);
+        kitchen.doKitchenWork();
+
+        // kitchen.getBrewMaster().setHasWorkToDo(true);
+        // kitchen.getIceBox().setHasWorkToDo(true);
+        // kitchen.getDishWasher().setHasWorkToDo(true);
+
+        // kitchen.getBrewMaster().brewCoffee();
+        // kitchen.getDishWasher().doDishes();
+        // kitchen.getIceBox().orderFood();        
+
+        // SalariedEmployee employee = new SalariedEmployee("Trevor Belmont", "01-01-1980", 123456789, "11-01-2020", 120000);
+        // System.out.println("Employee name: " + employee.getName());
+        // System.out.println("Employee age: " + employee.getAge());
+        // System.out.println("Employee monthly salary: " + employee.collectPay());
+        // System.out.println("Employee ID: " + employee.getEmployeeId());
+        // System.out.println("Employee birth date: " + employee.getBirthDate());
+        // System.out.println("Employee annual salary: " + employee.getAnnualSalary());
+        // System.out.println("Employee hire date: " + employee.getHireDate());
+        // employee.setEndDate("15-04-2024");
+        // System.out.println("Employee end date: " + employee.getEndDate());
 
         // Try to terminate an employee.
 
