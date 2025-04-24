@@ -3,10 +3,16 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        SmartKitchen kitchen = new SmartKitchen();
+        Printer printer = new Printer(50, false);
 
-        kitchen.setKitchenState(true, true, true);
-        kitchen.doKitchenWork();
+        printer.printPages(12);
+        printer.addToner(124);
+        System.out.println(printer.addToner(124));
+
+        // SmartKitchen kitchen = new SmartKitchen();
+
+        // kitchen.setKitchenState(true, false, true);
+        // kitchen.doKitchenWork();
 
         // kitchen.getBrewMaster().setHasWorkToDo(true);
         // kitchen.getIceBox().setHasWorkToDo(true);
