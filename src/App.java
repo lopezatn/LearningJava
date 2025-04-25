@@ -3,11 +3,12 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        Printer printer = new Printer(50, false);
+        Printer printer = new Printer(50, true);
 
-        printer.printPages(12);
+        printer.printPages(7);
+        System.out.println("Pages printed: " + printer.getPagesPrinted());
         printer.addToner(124);
-        System.out.println(printer.addToner(124));
+        System.out.println("Toner level: " + printer.getTonerLevel());
 
         // SmartKitchen kitchen = new SmartKitchen();
 
