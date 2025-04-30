@@ -3,12 +3,186 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        Printer printer = new Printer(50, true);
+        Scanner scanner = new Scanner(System.in);
 
-        printer.printPages(7);
-        System.out.println("Pages printed: " + printer.getPagesPrinted());
-        printer.addToner(124);
-        System.out.println("Toner level: " + printer.getTonerLevel());
+        Meal meal = new Meal();
+
+        //burger type and topping
+        System.out.println("Hey! Welcome to my fast food place! pick something:\n1. Regular Burger $0.50\n2. Big Mac $1.39\n3. Tasty $1.99\n4. Bacon & Cheese $1.49\n5. to choose the regular meal for only $1.60.");
+        System.out.println();
+        String burgerType = scanner.nextLine();
+        switch (burgerType) {
+            case "1":
+                burgerType = "BigMac";
+                System.out.println("You chose BigMac");
+                System.out.println();
+                break;
+            case "2":
+                burgerType = "BigMac";
+                System.out.println("You chose BigMac");
+                System.out.println();
+                break;
+            case "3":
+                burgerType = "Tasty";
+                System.out.println("You chose Tasty");
+                System.out.println();
+                break;
+            case "4":
+                burgerType = "Bacon&Cheese";
+                System.out.println("You chose Bacon&Cheese");
+                System.out.println();
+                break;
+            case "5":
+                burgerType = "RegularMeal";
+                System.out.println("You chose Regular Meal");
+                System.out.println();
+                break;
+            default:
+                System.out.println("Invalid burger type, please try again.");
+                System.out.println();
+                break;
+        }
+        meal.getBurger().setBurgerType(burgerType);
+        System.out.println("Burger price: $" + meal.getBurger().getBurgerPrice());
+        System.out.println();
+
+        System.out.println("Choose your burger topping:\n1. Onion\n2. Tomato\n3. Lettuce\n0. To finish");
+        System.out.println("(You can choose up to 3 toppings for free, after that, each topping will be charged $0.50.)");
+        System.out.println();
+        String burgerTopping = scanner.nextLine();
+        while (!burgerTopping.equals("0")) {
+
+            switch (burgerTopping) {
+                case "1":
+                    System.out.println("You chose Onion");
+                    System.out.println();
+                    break;
+                case "2":
+                    System.out.println("You chose Tomato");
+                    System.out.println();
+                    break;
+                case "3":
+                    System.out.println("You chose Lettuce");
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Invalid burger topping, please try again.");
+                    System.out.println();
+                    break;
+            }
+            meal.getBurger().addTopping(burgerTopping);
+            System.out.println("Choose another topping or 0 to finish:\n1. Onion\n2. Tomato\n3. Lettuce\n0. Finish");
+            System.out.println();
+            burgerTopping = scanner.nextLine();
+        }
+        System.out.println("Burger price: $" + meal.getBurger().getBurgerPrice());
+        System.out.println();
+
+
+        //sidedish type
+        System.out.println("Choose your side:\n1. Fries $0.75\n2. Salad $0.59\n3. Onion Rings $0.95");
+        System.out.println();
+        String sideType = scanner.nextLine();
+        switch (sideType) {
+            case "1":
+                sideType = "Fries";
+                System.out.println("You chose Fries");
+                System.out.println();
+                break;
+            case "2":
+                sideType = "Salad";
+                System.out.println("You chose Salad");
+                System.out.println();
+                break;
+            case "3":
+                sideType = "Onion Rings";
+                System.out.println("You chose Onion Rings");
+                System.out.println();
+                break;
+            default:
+                System.out.println("Invalid side type, please try again.");
+                System.out.println();
+                break;
+        }
+        meal.getSidedish().setSideType(sideType);
+        System.out.println("Sidedish price: $" + meal.getSidedish().getSidePrice());
+        System.out.println();
+
+        //drink type
+        System.out.println("Choose your drink:\n1. Coke $0.99\n2. Pepsi $0.89\n3. Sprite $0.79\n4. Fanta $0.79\n5. Water $0.00");
+        System.out.println();
+        String drinkType = scanner.nextLine();
+        switch (drinkType) {
+            case "1":
+                drinkType = "Coke";
+                System.out.println("You chose Coke");
+                System.out.println();
+                break;
+            case "2":
+                drinkType = "Pepsi";
+                System.out.println("You chose Pepsi");
+                System.out.println();
+                break;
+            case "3":
+                drinkType = "Sprite";
+                System.out.println("You chose Sprite");
+                System.out.println();
+                break;
+            case "4":
+                drinkType = "Fanta";
+                System.out.println("You chose Fanta");
+                System.out.println();
+                break;
+            case "5":
+                drinkType = "Water";
+                System.out.println("You chose Water");
+                System.out.println();
+                break;
+            default:
+                System.out.println("Invalid drink type, please try again.");
+                System.out.println();
+                break;
+        }
+        meal.getDrink().setDrinkType(drinkType);
+        System.out.println("Drink price: $" + meal.getDrink().getDrinkPrice());
+        System.out.println();
+
+        //drink size
+        System.out.println("Choose your drink size:\n1. Small $0.00\n2. Medium $0.50\n3. Large $1.00");
+        System.out.println();
+        String drinkSize = scanner.nextLine();
+        switch (drinkSize) {
+            case "1":
+                drinkSize = "Small";
+                System.out.println("You chose Small");
+                System.out.println();
+                break;
+            case "2":
+                drinkSize = "Medium";
+                System.out.println("You chose Medium");
+                System.out.println();
+                break;
+            case "3":
+                drinkSize = "Large";
+                System.out.println("You chose Large");
+                System.out.println();
+                break;
+            default:
+                System.out.println("Invalid drink size, please try again.");
+                System.out.println();
+                break;
+        }
+        meal.getDrink().setDrinkSize(drinkSize);
+        System.out.println("Drink size price: $" + meal.getDrink().getDrinkPrice());
+        System.out.println();
+
+        
+        // Printer printer = new Printer(50, true);
+
+        // printer.printPages(7);
+        // System.out.println("Pages printed: " + printer.getPagesPrinted());
+        // printer.addToner(124);
+        // System.out.println("Toner level: " + printer.getTonerLevel());
 
         // SmartKitchen kitchen = new SmartKitchen();
 
