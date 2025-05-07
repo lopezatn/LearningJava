@@ -1,182 +1,23 @@
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        MealOrder deluxeMeal = new MealOrder("deluxe", "coke", "fries");
+        deluxeMeal.addDeluxeExtras("BACON", "CHEESE", "MAYO", "KETCHUP", "BBQ SAUCE");
+        deluxeMeal.printItemizedList();
 
-        Meal meal = new Meal();
+        // MealOrder meal = new MealOrder("regular", "coke", "fries");
+        // meal.addToppings("BACON", "CHEESE", "MAYO");
+        // meal.printItemizedList();
 
-        //burger type and topping
-        System.out.println("Hey! Welcome to my fast food place! pick something:\n1. Regular Burger $0.50\n2. Big Mac $1.39\n3. Tasty $1.99\n4. Bacon & Cheese $1.49\n5. to choose the regular meal for only $1.60.");
-        System.out.println();
-        String burgerType = scanner.nextLine();
-        switch (burgerType) {
-            case "1":
-                burgerType = "BigMac";
-                System.out.println("You chose BigMac");
-                System.out.println();
-                break;
-            case "2":
-                burgerType = "BigMac";
-                System.out.println("You chose BigMac");
-                System.out.println();
-                break;
-            case "3":
-                burgerType = "Tasty";
-                System.out.println("You chose Tasty");
-                System.out.println();
-                break;
-            case "4":
-                burgerType = "Bacon&Cheese";
-                System.out.println("You chose Bacon&Cheese");
-                System.out.println();
-                break;
-            case "5":
-                burgerType = "RegularMeal";
-                System.out.println("You chose Regular Meal");
-                System.out.println();
-                break;
-            default:
-                System.out.println("Invalid burger type, please try again.");
-                System.out.println();
-                break;
-        }
-        meal.getBurger().setBurgerType(burgerType);
-        System.out.println("Burger price: $" + meal.getBurger().getBurgerPrice());
-        System.out.println();
+        // Burger burger = new Burger("regular", 0.50);
+        // burger.addToppings("BACON", "CHEESE", "MAYO");
+        // burger.printItem();
 
-        System.out.println("Choose your burger topping:\n1. Onion\n2. Tomato\n3. Lettuce\n0. To finish");
-        System.out.println("(You can choose up to 3 toppings for free, after that, each topping will be charged $0.50.)");
-        System.out.println();
-        String burgerTopping = scanner.nextLine();
-        while (!burgerTopping.equals("0")) {
+        // Item coke = new Item("Drink", "Coke", 0.99);
+        // coke.printItem();
+        // coke.setSize("Large");
+        // coke.printItem();
 
-            switch (burgerTopping) {
-                case "1":
-                    System.out.println("You chose Onion");
-                    System.out.println();
-                    break;
-                case "2":
-                    System.out.println("You chose Tomato");
-                    System.out.println();
-                    break;
-                case "3":
-                    System.out.println("You chose Lettuce");
-                    System.out.println();
-                    break;
-                default:
-                    System.out.println("Invalid burger topping, please try again.");
-                    System.out.println();
-                    break;
-            }
-            meal.getBurger().addTopping(burgerTopping);
-            System.out.println("Choose another topping or 0 to finish:\n1. Onion\n2. Tomato\n3. Lettuce\n0. Finish");
-            System.out.println();
-            burgerTopping = scanner.nextLine();
-        }
-        System.out.println("Burger price: $" + meal.getBurger().getBurgerPrice());
-        System.out.println();
-
-
-        //sidedish type
-        System.out.println("Choose your side:\n1. Fries $0.75\n2. Salad $0.59\n3. Onion Rings $0.95");
-        System.out.println();
-        String sideType = scanner.nextLine();
-        switch (sideType) {
-            case "1":
-                sideType = "Fries";
-                System.out.println("You chose Fries");
-                System.out.println();
-                break;
-            case "2":
-                sideType = "Salad";
-                System.out.println("You chose Salad");
-                System.out.println();
-                break;
-            case "3":
-                sideType = "Onion Rings";
-                System.out.println("You chose Onion Rings");
-                System.out.println();
-                break;
-            default:
-                System.out.println("Invalid side type, please try again.");
-                System.out.println();
-                break;
-        }
-        meal.getSidedish().setSideType(sideType);
-        System.out.println("Sidedish price: $" + meal.getSidedish().getSidePrice());
-        System.out.println();
-
-        //drink type
-        System.out.println("Choose your drink:\n1. Coke $0.99\n2. Pepsi $0.89\n3. Sprite $0.79\n4. Fanta $0.79\n5. Water $0.00");
-        System.out.println();
-        String drinkType = scanner.nextLine();
-        switch (drinkType) {
-            case "1":
-                drinkType = "Coke";
-                System.out.println("You chose Coke");
-                System.out.println();
-                break;
-            case "2":
-                drinkType = "Pepsi";
-                System.out.println("You chose Pepsi");
-                System.out.println();
-                break;
-            case "3":
-                drinkType = "Sprite";
-                System.out.println("You chose Sprite");
-                System.out.println();
-                break;
-            case "4":
-                drinkType = "Fanta";
-                System.out.println("You chose Fanta");
-                System.out.println();
-                break;
-            case "5":
-                drinkType = "Water";
-                System.out.println("You chose Water");
-                System.out.println();
-                break;
-            default:
-                System.out.println("Invalid drink type, please try again.");
-                System.out.println();
-                break;
-        }
-        meal.getDrink().setDrinkType(drinkType);
-        System.out.println("Drink price: $" + meal.getDrink().getDrinkPrice());
-        System.out.println();
-
-        //drink size
-        System.out.println("Choose your drink size:\n1. Small $0.00\n2. Medium $0.50\n3. Large $1.00");
-        System.out.println();
-        String drinkSize = scanner.nextLine();
-        switch (drinkSize) {
-            case "1":
-                drinkSize = "Small";
-                System.out.println("You chose Small");
-                System.out.println();
-                break;
-            case "2":
-                drinkSize = "Medium";
-                System.out.println("You chose Medium");
-                System.out.println();
-                break;
-            case "3":
-                drinkSize = "Large";
-                System.out.println("You chose Large");
-                System.out.println();
-                break;
-            default:
-                System.out.println("Invalid drink size, please try again.");
-                System.out.println();
-                break;
-        }
-        meal.getDrink().setDrinkSize(drinkSize);
-        System.out.println("Drink size price: $" + meal.getDrink().getDrinkPrice());
-        System.out.println();
-
-        
         // Printer printer = new Printer(50, true);
 
         // printer.printPages(7);
@@ -195,9 +36,10 @@ public class App {
 
         // kitchen.getBrewMaster().brewCoffee();
         // kitchen.getDishWasher().doDishes();
-        // kitchen.getIceBox().orderFood();        
+        // kitchen.getIceBox().orderFood();
 
-        // SalariedEmployee employee = new SalariedEmployee("Trevor Belmont", "01-01-1980", 123456789, "11-01-2020", 120000);
+        // SalariedEmployee employee = new SalariedEmployee("Trevor Belmont",
+        // "01-01-1980", 123456789, "11-01-2020", 120000);
         // System.out.println("Employee name: " + employee.getName());
         // System.out.println("Employee age: " + employee.getAge());
         // System.out.println("Employee monthly salary: " + employee.collectPay());
@@ -210,22 +52,19 @@ public class App {
 
         // Try to terminate an employee.
 
-
-
         // BankAccount myAccount = new BankAccount();
-    
+
         // myAccount.setAccountNumber(8884);
         // myAccount.setAccountBalance(0);
         // myAccount.setCustomerName("Trevor Belmont");
         // myAccount.setEmailAddress("trevor@housebelmont.com");
         // myAccount.setPhoneNumber(123456789);
-    
+
         // myAccount.accountInformation();
         // myAccount.depositFunds(50000);
         // myAccount.withdrawFunds(40000);
-        
-    }
 
+    }
 
     // overloaded methods:
     public static double convertToCentimeters(int inches) {
@@ -234,11 +73,11 @@ public class App {
     }
 
     public static double convertToCentimeters(int feet, int inches) {
-        return convertToCentimeters((int) feet*12+inches);
+        return convertToCentimeters((int) feet * 12 + inches);
 
     }
 
-    public static String getDurationString (int seconds) {
+    public static String getDurationString(int seconds) {
         if (seconds < 0) {
             return String.format("The seconds must be a positive integer.");
         }
@@ -249,17 +88,17 @@ public class App {
         while (seconds >= 3600) {
             hours++;
             seconds -= 3600;
-        } 
+        }
         while (seconds >= 60) {
             minutes++;
-            seconds -= 60;   
+            seconds -= 60;
         }
         return String.format("%02dh %02dm %02ds", hours, minutes, seconds);
 
     }
 
-    public static String getDurationString (int minutes, int seconds) {
-        if (minutes < 0 || seconds < 0 || seconds > 59 ) {
+    public static String getDurationString(int minutes, int seconds) {
+        if (minutes < 0 || seconds < 0 || seconds > 59) {
             return String.format("Integers must be positive and seconds can't be bigger than 59");
         }
 
@@ -276,7 +115,7 @@ public class App {
         }
 
         return String.format("%02dh %02dm %02ds", hours, minutes, seconds);
-        
+
     }
     // end of overloaded methods
 
@@ -304,7 +143,7 @@ public class App {
                 System.out.println(letter + " not found");
                 break;
         }
-        
+
     }
 
     public static void switchEnhancedStatementWeekDay(int day) {
@@ -318,17 +157,16 @@ public class App {
             case 5 -> "Friday";
             case 6 -> "Saturday";
             default -> "Invalid day";
-            };
+        };
         System.out.println(dayOfTheWeek);
 
     }
 
-    
-    public static boolean isLeapYear (int year) {
+    public static boolean isLeapYear(int year) {
         if (year < 1 || year > 9999) {
             return false;
         }
-        
+
         if (year % 4 != 0) {
             return false;
         } else if (year % 100 != 0) {
@@ -340,14 +178,14 @@ public class App {
         }
 
     }
-    
-    public static int getDaysInMonth (int month, int year) {
+
+    public static int getDaysInMonth(int month, int year) {
         if (month < 1 || month > 12) {
             return -1;
         } else if (year < 1 || year > 9999) {
             return -1;
         }
-        
+
         int daysInMonth = switch (month) {
             case 1 -> 31;
             case 2 -> isLeapYear(year) ? 29 : 28;
@@ -370,8 +208,8 @@ public class App {
 
     // numbers and for loops
 
-    public static boolean isPrime (int number) {
-        
+    public static boolean isPrime(int number) {
+
         for (int divisor = 2; divisor <= (number / 2); divisor++) {
             if (number % divisor == 0) {
                 return false;
@@ -380,7 +218,7 @@ public class App {
         return true;
     }
 
-    public static void primeNumbersCounter () {
+    public static void primeNumbersCounter() {
         for (int counter = 0; counter <= 3;) {
             if (counter == 3) {
                 break;
@@ -392,7 +230,7 @@ public class App {
         }
     }
 
-    public static void sum3And5 () {
+    public static void sum3And5() {
         int sum = 0;
         int counter = 0;
         for (int i = 1; i <= 1000; i++) {
@@ -413,14 +251,14 @@ public class App {
 
     // while loop
 
-    public static boolean isEvenNumber (int number) {
+    public static boolean isEvenNumber(int number) {
         if (number % 2 == 0) {
             return true;
         }
         return false;
     }
 
-    public static void printEvenNumbers () {
+    public static void printEvenNumbers() {
         int number = 5;
         int evenNumbersFound = 0;
         int oddNumbersFound = 0;
@@ -429,7 +267,7 @@ public class App {
             if (isEvenNumber(number)) {
                 evenNumbersFound++;
                 System.out.println("Even number: " + number);
-                number++;        
+                number++;
             } else {
                 oddNumbersFound++;
                 System.out.println("Odd number: " + number);
@@ -440,14 +278,14 @@ public class App {
         System.out.println("The amount of odd numbers found is: " + oddNumbersFound);
 
         // while (number <= 20) {
-        //     if (isEvenNumber(number)) {
-        //         System.out.println(number);
-        //     }
-        //     number++;
+        // if (isEvenNumber(number)) {
+        // System.out.println(number);
+        // }
+        // number++;
         // }
     }
 
-    public static int sumDigits (int number) {
+    public static int sumDigits(int number) {
         if (number < 0) {
             return -1;
         }
@@ -466,7 +304,7 @@ public class App {
 
     // user input
 
-    public static int sumInputNumbers () {
+    public static int sumInputNumbers() {
         Scanner scanner = new Scanner(System.in);
         int number = 0;
         int sum = 0;
@@ -480,14 +318,14 @@ public class App {
                 numberSequence++;
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number, please use integers");
-            }            
+            }
         } while (numberSequence <= 5);
         scanner.close();
-        
-        return  sum;
+
+        return sum;
     }
 
-    public static int trackMinAndMaxNumbers () {
+    public static int trackMinAndMaxNumbers() {
         Scanner scanner = new Scanner(System.in);
         int minNumber = Integer.MIN_VALUE;
         int maxNumber = Integer.MAX_VALUE;
@@ -505,7 +343,7 @@ public class App {
                 case 5 -> "Enter the sixth number. Enter a character to EXIT";
                 default -> "Keep entering numbers or a character to Exit";
             };
-            
+
             System.out.println(numberSequence);
             input = scanner.nextLine();
             try {
@@ -531,7 +369,7 @@ public class App {
     // OOP - Classes & methods
 
     public static class BankAccount {
-        
+
         // class properties
         private long accountNumber;
         private long accountBalance;
@@ -543,45 +381,54 @@ public class App {
         public long getAccountNumber() {
             return accountNumber;
         }
+
         public void setAccountNumber(long accountNumber) {
             this.accountNumber = accountNumber;
         }
+
         public long getAccountBalance() {
             return accountBalance;
         }
+
         public void setAccountBalance(long accountBalance) {
             this.accountBalance = accountBalance;
         }
+
         public String getCustomerName() {
             return customerName;
         }
+
         public void setCustomerName(String customerName) {
             this.customerName = customerName;
         }
+
         public String getEmailAddress() {
             return emailAddress;
         }
+
         public void setEmailAddress(String emailAddress) {
             this.emailAddress = emailAddress;
         }
+
         public long getPhoneNumber() {
             return phoneNumber;
         }
+
         public void setPhoneNumber(long phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
 
-        public void accountInformation () {
+        public void accountInformation() {
             System.out.println("Welcome back " + customerName);
         }
 
-        public void depositFunds (long amount) {
+        public void depositFunds(long amount) {
             System.out.println("Previous funds: " + accountBalance);
             accountBalance += amount;
             System.out.println("Current funds: " + accountBalance);
         }
-        
-        public void withdrawFunds (long amount) {
+
+        public void withdrawFunds(long amount) {
             if (amount > accountBalance) {
                 System.out.println("The amount to withdraw exceeds your account funds");
                 return;
@@ -605,9 +452,8 @@ public class App {
 
         public Customer() {
             this(
-            "Trevor Belmont", 
-            "trevor@belmonthouse.com"
-            );
+                    "Trevor Belmont",
+                    "trevor@belmonthouse.com");
         }
 
         public Customer(String name, String emailAddress) {
@@ -615,15 +461,15 @@ public class App {
         }
 
         public void getName() {
-         
+
         }
 
         public void getCreditLimit() {
-            
+
         }
 
         public void getEmailAddress() {
-            
+
         }
     }
 
